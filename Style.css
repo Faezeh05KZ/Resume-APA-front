@@ -1,0 +1,300 @@
+
+:root 
+{
+    /* متغیرهای رنگی برای تم روشن */
+    --bg-color: #f0f2f5;
+    --card-bg-color: #ffffff;
+    --text-color: #333a4d;
+    --primary-color: #5D54A4; /* یک رنگ بنفش جذاب */
+    --secondary-color: #7d8597;
+    --border-color: #e0e0e0;
+    --progress-bg: #e9ecef;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --font-family: 'Vazirmatn', sans-serif;
+}
+
+body.dark-theme 
+{
+    /* متغیرهای رنگی برای تم تاریک */
+    --bg-color: #1a1a2e;
+    --card-bg-color: #16213e;
+    --text-color: #e0e0e0;
+    --primary-color: #8a84e2;
+    --secondary-color: #a9a9a9;
+    --border-color: #333c5f;
+    --progress-bg: #333c5f;
+}
+
+body 
+{
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.4s, color 0.4s;
+    overflow-x: hidden; /* جلوگیری از اسکرول افقی */
+}
+
+.container 
+{
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.card 
+{
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: background-color 0.4s, border-color 0.4s;
+}
+
+.hidden 
+{
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible 
+{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h2 
+{
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+
+.loader-container, .error-container 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-color);
+    z-index: 999;
+    transition: background-color 0.4s;
+}
+
+.loader 
+{
+    border: 5px solid var(--progress-bg);
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin 
+{
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.main-header 
+{
+    text-align: left;
+    padding: 1rem;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+}
+
+.theme-btn 
+{
+    background: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+.theme-btn:hover 
+{
+    transform: scale(1.1) rotate(15deg);
+}
+
+/* بخش اطلاعات شخصی */
+#personal-info 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+#personal-info img 
+{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+}
+#personal-info h1 
+{
+    margin: 0.5rem 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+#personal-info .title 
+{
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+#personal-info .bio 
+{
+    max-width: 600px;
+}
+.contact-links 
+{
+    margin-top: 1rem;
+}
+.contact-links a 
+{
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin: 0 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.contact-links a:hover 
+{
+    color: var(--primary-color);
+}
+
+/* بخش مهارت‌ها */
+#skills-container .skill
+ {
+    margin-bottom: 1.2rem;
+}
+#skills-container .skill-info 
+{
+
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+.progress-bar
+ {
+    background-color: var(--progress-bg);
+    border-radius: 5px;
+    height: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+.progress 
+{
+    background-color: var(--primary-color);
+    height: 100%;
+    border-radius: 5px;
+    width: 0; /* با جاوا اسکریپت پر می‌شود */
+    transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* بخش‌های سوابق */
+.entry {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed var(--border-color);
+}
+.entry:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.entry h3 {
+    margin: 0 0 0.25rem 0;
+    color: var(--text-color);
+    font-weight: 600;
+}
+.entry strong {
+    color: var(--primary-color);
+}
+.entry .period {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+.entry p {
+    margin: 0;
+}
+
+/*  (گواهینامه‌ها و علایق) */
+.achievements-list, .interest-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.achievements-list li, .interest-list li {
+    background-color: var(--bg-color);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    border-right: 4px solid var(--primary-color);
+}
+.achievements-list li:hover, .interest-list li:hover {
+    transform: translateX(-5px);
+    background-color: var(--primary-color);
+    color: white;
+}
+.achievements-list a 
+{
+    color: inherit; 
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* استراکت برای چیدمان دو ستونه */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/*  برای موبایل */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    .card {
+        padding: 1.5rem;
+    }
+    #personal-info h1 {
+        font-size: 1.8rem;
+    }
+}
